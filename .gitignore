@@ -1,6 +1,6 @@
 /target/
 /classes/
-/log/  
+/log/
 /logs/
 .idea/*
 .idea*
