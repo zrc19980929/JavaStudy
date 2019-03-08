@@ -3,15 +3,23 @@ package org.zrc.wordcount;
 import java.io.*;
 import java.util.*;
 
+/**
+ *
+ * WordCount 给定一篇英文文档（input.txt），统计其中单词词频，将结果输入到文件中（output.txt)
+ *
+ */
+
 public class WordCount {
     public static final String InputFileName = "input.txt";
     public static final String OutputFileName = "output.txt";
 
+    // 获取资源文件目录
     private static InputStream getInputStream(final String path) {
         return Thread.currentThread().getContextClassLoader()
                 .getResourceAsStream(path);
     }
 
+    // 读取input文档，将其中的英文单词保存到List中
     public static List<String> readWordsFile(String inputFileName) {
         List<String> wordList = new ArrayList<String>();
 
@@ -43,6 +51,7 @@ public class WordCount {
         return wordList;
     }
 
+    // 处理List中的英文单词，统计词频，结果保存到HashMap中
     public static Map<String, Integer> processWordMap(List<String> wordList){
         Map<String, Integer> wordMap = new HashMap<String, Integer>();
         for(String word: wordList){
@@ -55,6 +64,7 @@ public class WordCount {
         return wordMap;
     }
 
+    // 将HashMap中的单词按词频降序排列，结果输出到output文本文件
     public static void writeWordsFile(Map<String, Integer> wordMap, String outputFileName) {
         BufferedWriter writer = null;
         try{
